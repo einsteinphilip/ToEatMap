@@ -27,6 +27,8 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 ### add user
 gem 'devise', '~> 3.5', '>= 3.5.2'
 
+### sdd style
+gem 'bootstrap-sass', '~> 3.3', '>= 3.3.6'
 
 
 group :development, :test do

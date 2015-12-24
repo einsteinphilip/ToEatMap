@@ -1,10 +1,14 @@
 class RestaurantsController < ApplicationController
   before_action :set_restaurant, only: [:show, :edit, :update, :destroy]
-  before_filter :authenticate_user!, except: [:index, :show]
+  before_filter :authenticate_user!, except: [:index, :show, :map]
 
   # GET /restaurants
   # GET /restaurants.json
   def index
+    @restaurants = Restaurant.all
+  end
+
+  def map
     @restaurants = Restaurant.all
   end
 
