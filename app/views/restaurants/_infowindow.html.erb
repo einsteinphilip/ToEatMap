@@ -1,0 +1,15 @@
+
+<body>
+  <h4><a href="<%= restaurant.reflink %>"><%= restaurant.name %></a></h4>
+  <ul>
+    <li><%= restaurant.address %>
+    <li><%= restaurant.openhour%>
+  </ul>
+  <%= link_to 'Show', restaurant %>
+  <% if restaurant.user == current_user -%>
+    <%= link_to 'Edit', edit_restaurant_path(restaurant) %>
+    <%= link_to 'Destroy', restaurant, method: :delete, data: { confirm: 'Are you sure?' } %>
+  <% end %>
+</body>
+
+

@@ -30,6 +30,10 @@ gem 'devise', '~> 3.5', '>= 3.5.2'
 ### sdd style
 gem 'bootstrap-sass', '~> 3.3', '>= 3.3.6'
 
+### add geocoder
+gem 'geocoder'
+### add google map
+gem 'gmaps4rails'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
