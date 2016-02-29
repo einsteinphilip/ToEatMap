@@ -10,6 +10,7 @@ class RestaurantsController < ApplicationController
 
   def map
     @restaurants = Restaurant.all
+
   end
 
   # GET /restaurants/1
