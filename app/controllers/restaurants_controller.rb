@@ -10,17 +10,7 @@ class RestaurantsController < ApplicationController
 
   def map
     @restaurants = Restaurant.all
-    @hash = Gmaps4rails.build_markers(@restaurants) do |restaurant, marker| 
-      if restaurant.user == current_user 
-        marker.lat restaurant.latitude 
-        marker.lng restaurant.longitude 
-        marker.title restaurant.name 
-        marker.picture({"url": "/images/restaurant.png",
-                        "width":  32,
-                        "height": 32}) 
-        marker.infowindow render_to_string(:partial => "infowindow", :locals => { :restaurant => restaurant})
-      end 
-    end   
+
   end
 
   # GET /restaurants/1

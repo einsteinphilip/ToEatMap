@@ -1,35 +1,49 @@
-<p id="notice"><%= notice %></p>
 
-<h1>Listing Restaurants</h1>
+  <p id="notice"><%= notice %></p>
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Address</th>
-      <th>Openhour</th>
-      <th>Reflink</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+  <h1>Listing Restaurants</h1>
 
-  <tbody>
-    <% @restaurants.each do |restaurant| %>
-      <tr>
-        <td><%= restaurant.name %></td>
-        <td><%= restaurant.address %></td>
-        <td><%= restaurant.openhour %></td>
-        <td><%= restaurant.reflink %></td>
-        <td><%= link_to 'Show', restaurant %></td>
-        <% if restaurant.user == current_user -%>
-          <td><%= link_to 'Edit', edit_restaurant_path(restaurant) %></td>
-          <td><%= link_to 'Destroy', restaurant, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  <div class="table">          
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Score</th>
+          <th>Address</th>
+          <th>Openhour</th>
+          <th colspan="3"></th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% @restaurants.each do |restaurant| %>
+          <tr>
+            <% if restaurant.reflink != "" %>
+              <td><%= link_to restaurant.name, restaurant.reflink %></td>
+            <% else %>
+              <td><%= restaurant.name %></td>
+            <% end -%>
+            <% if restaurant.user == current_user -%>
+              <td><%= rating_for_user restaurant, current_user, "score", enable_half: 'true', half_show: 'true', star: '5', cancel: 'false' %></td>
+            <% else %>
+              <td><%= rating_for restaurant, 'score', enable_half: 'true', half_show: 'true', star: '5' %></td>
+            <% end -%>
+            
+            <td><%= restaurant.address %></td>
+            <td><%= restaurant.openhour %></td>
+            <td><%= link_to 'Show', restaurant %></td>
+            <% if restaurant.user == current_user -%>
+              <td><%= link_to 'Edit', edit_restaurant_path(restaurant) %></td>
+              <td><%= link_to 'Destroy', restaurant, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+            <% end %>
+          </tr>
         <% end %>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+      </tbody>
+    </table>
+  </div>
+ 
+  <br>
 
-<br>
+  <%= link_to 'New Restaurant', new_restaurant_path %>
 
-<%= link_to 'New Restaurant', new_restaurant_path %>
+
