@@ -19,6 +19,7 @@
     <% end -%>
     <li><%= restaurant.address %>
     <li><%= restaurant.openhour%>
+    <li><%= raw restaurant.tag_list.map {|t| link_to t, tag_path(t)}.join(',')  %>
   </ul>
   <%= link_to 'Show', restaurant %>
   <% if restaurant.user == current_user -%>

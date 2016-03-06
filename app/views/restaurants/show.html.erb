@@ -20,5 +20,11 @@
   <%= @restaurant.reflink %>
 </p>
 
+<p>
+  <strong>Tags:</strong>
+  <%= raw @restaurant.tag_list.map {|t| link_to t, tag_path(t)}.join(',')  %>
+  <%#= @restaurant.tag_list %>
+</p>
+
 <%= link_to 'Edit', edit_restaurant_path(@restaurant) %> |
 <%= link_to 'Back', restaurants_path %>
