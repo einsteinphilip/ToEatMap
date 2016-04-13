@@ -35,7 +35,7 @@ gem 'geocoder'
 gem 'gmaps4rails'
 
 ### add rating
-gem 'ratyrate'
+gem 'ratyrate', :git => 'https://github.com/wazery/ratyrate.git'
 
 ### add tag cloud
 gem 'acts-as-taggable-on', '~> 3.4'
