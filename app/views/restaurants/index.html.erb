@@ -25,9 +25,9 @@
               <td><%= restaurant.name %></td>
             <% end -%>
             <% if restaurant.user == current_user -%>
-              <td><%= rating_for_user restaurant, current_user, "score", enable_half: 'true', half_show: 'true', star: '5', cancel: 'false' %></td>
+              <td><%= rating_for_user restaurant, current_user, "score", enable_half: 'true', half_show: 'true', star: '5', cancel: 'false', star_path: '/images' %></td>
             <% else %>
-              <td><%= rating_for restaurant, 'score', enable_half: 'true', half_show: 'true', star: '5' %></td>
+              <td><%= rating_for restaurant, 'score', enable_half: 'true', half_show: 'true', star: '5', star_path: '/images' %></td>
             <% end -%>
             <td><%= raw restaurant.tag_list.map {|t| link_to t, tag_path(t)}.join(',')  %></td>
             <td><%= restaurant.address %></td>
