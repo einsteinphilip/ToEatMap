@@ -6,6 +6,15 @@
 </p>
 
 <p>
+  <strong>Stars:</strong>
+  <% if @restaurant.user == current_user -%>
+    <td><%= rating_for_user @restaurant, current_user, "score", enable_half: 'true', half_show: 'true', star: '5', cancel: 'false' %></td>
+  <% else %>
+    <td><%= rating_for @restaurant, 'score', enable_half: 'true', half_show: 'true', star: '5' %></td>
+  <% end -%>
+</p>
+
+<p>
   <strong>Address:</strong>
   <%= @restaurant.address %>
 </p>
