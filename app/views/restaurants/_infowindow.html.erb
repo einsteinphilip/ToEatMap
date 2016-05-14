@@ -8,7 +8,7 @@
   <ul>
     <% if restaurant.user == current_user -%>
       <% @rating = Rate.find_by_rater_id_and_rateable_id_and_dimension(current_user.id, restaurant.id, 'score') %>
-      <li>Score: <%= @rating ? @rating.stars : 0%>
+      <li>Score: <%= @rating ? @rating.stars.round(3) : 0%>
       <% overall_avg = restaurant.overall_avg(current_user)%>
       <%#= rating_for_user restaurant, current_user, "score", enable_half: 'true', half_show: 'true', star: '5', cancel: 'false' %>
     <% else %>
